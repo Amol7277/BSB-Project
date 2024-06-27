@@ -4,7 +4,8 @@ Library     SeleniumLibrary
 
 *** Variables ***
 #Web site & Browser Varibles
-${URL}      https://stagingsports.bsbtest.com/default.aspx?portalid=8575
+${URL}      https://leagues.bluesombrero.com/default.aspx?portalid=9003
+#${URL}      https://stagingsports.bsbtest.com/default.aspx?portalid=8575
 ${browser}      chrome
 
 #Login ID variables
@@ -13,21 +14,21 @@ ${Pwd}      Test@1234
 
 #Program Name Variable
 ${Activity}     Baseball
-${prg_name}     22_06_TC 5
+${prg_name}     26_06_24_TC
 
 
 #Division 1 Variables
 ${Div1_Name}      PPT Div
 ${Div1_Price}      10000
-${Div1_reg_startdate}     06/20/2024
-${Div1_reg_closedate}     07/15/2024
+${Div1_regi_startdate}     06/20/2024
+${Div1_regi_closedate}     07/30/2024
 ${Div1_seasonstart}      06/30/2024
-${Div1_seasonend}        07/30/2024
+${Div1_seasonend}        08/30/2024
 ${Div1_oldage}           1/1/2000
 ${Div1_youngdate}        1/1/2015
 
-#Division 1 Advance *** Settings ***
-${EarlyBirth_Date}      06/30/2024
+#Division 1 Advance settings
+${EarlyBirth_Date}      07/10/2024
 ${LateFee_Date}         06/21/2024
 
 
@@ -52,6 +53,6 @@ ${Div3_oldage}           1/1/2000
 ${Div3_youngdate}        1/1/2015
 
 #Custom Team Staff Name
-${CustomPos_Name}       Custom A4
+${CustomPos_Name}       Custom A6
 
 *** Keywords ***

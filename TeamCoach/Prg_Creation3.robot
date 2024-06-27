@@ -4,21 +4,6 @@ Test Setup      Open the browser and open the URL
 Resource        Resource1.robot
 
 *** Variables ***
-#${URL}      https://stagingsports.bsbtest.com/default.aspx?portalid=8575
-#${browser}      chrome
-#${ID}       amol.sonar+superadmin@stacksports.com
-#${Pwd}      Test@1234
-#
-#${prg_name}     01_06_TC
-#
-#${div}      PPT Div
-#${amt}      10000
-#${regstartdate}     06/01/2024
-#${regclosedate}     06/25/2024
-#${seasonstart}      06/10/2024
-#${seasonend}        07/10/2024
-#${oldage}           1/1/2000
-#${youngdate}        1/1/2015
 
 ${Division_title}       //button/span[contains(text(),' Add Division ')]
 ${BUTTON}               //button/span[contains(text(), "Save & Continue")]
@@ -28,19 +13,22 @@ TeamCoach Program Creation
     Login into the Portal
     Open the registration form
     Create the TeamCoach Program and Complete the 1st step
-    Create Division 1   ${Div1_Name}    ${Div1_Price}   ${Div1_reg_startdate}   ${Div1_reg_closedate}   ${Div1_seasonstart}
+    Create Division 1   ${Div1_Name}    ${Div1_Price}   ${Div1_regi_startdate}   ${Div1_regi_closedate}   ${Div1_seasonstart}
     ...     ${Div1_seasonend}   ${Div1_oldage}      ${Div1_youngdate}
     Division 1 Advance setting      ${EarlyBirth_Date}      ${LateFee_Date}
     Click on the advanve button for the division 1 & Add custom disocunt
     Add custom fee for the Division 1
     Add Mandatory fee for the Division 1
-    Create Division 2    ${Div2_Name}    ${Div1_Price}   ${Div1_reg_startdate}   ${Div1_reg_closedate}   ${Div1_seasonstart}
+    Create Division 2    ${Div2_Name}    ${Div1_Price}   ${Div1_regi_startdate}   ${Div1_regi_closedate}   ${Div1_seasonstart}
     ...     ${Div1_seasonend}   ${Div1_oldage}      ${Div1_youngdate}
     Division 2 Advance Settings
-    Create Division 3    ${Div3_Name}    ${Div1_Price}   ${Div1_reg_startdate}   ${Div1_reg_closedate}   ${Div1_seasonstart}
+    Create Division 3    ${Div3_Name}    ${Div1_Price}   ${Div1_regi_startdate}   ${Div1_regi_closedate}   ${Div1_seasonstart}
     ...     ${Div1_seasonend}   ${Div1_oldage}      ${Div1_youngdate}
     Registration Questions
     Fees & Discount
+    Add Program level discount
+    Add Program Level Fees
+    Add Program level Mandatory Fees
     Team Staff Setup    ${CustomPos_Name}
     Confirmation Note
 
@@ -98,7 +86,7 @@ Create the TeamCoach Program and Complete the 1st step
 
 
 Create Division 1
-    [Arguments]    ${D_Name}    ${D_Price}    ${Div_reg_startdate}      ${Div_reg_closedate}    ${Div_seasonstart}
+    [Arguments]    ${D_Name}    ${D_Price}    ${Div1_regi_startdate}      ${Div1_regi_closedate}    ${Div_seasonstart}
     ...     ${Div_seasonend}    ${Div_oldage}   ${Div_youngdate}
 #    go to   https://registration-setup-site-stage.bsbtest.com/registration-admin/8575/program/130096348/2
     wait until element is visible                //button/span[contains(text(),' Add Division ')]    30
@@ -110,17 +98,21 @@ Create Division 1
     click element                                //div/mat-select[@formcontrolname='genderCtrl']
     click element                                //div/mat-option[@value='C']
 
-    input text                                   //div/input[@formcontrolname='openDateCtrl']      ${Div_reg_startdate}
+    sleep       1
+    input text                                   //div/input[@formcontrolname='openDateCtrl']      ${Div1_regi_startdate}
+    sleep       1
     double click element                         //div/input[@formcontrolname='openDateCtrl']
-    sleep   1
+    sleep       1
 
-    input text                                   //div/input[@formcontrolname='closeDateCtrl']      ${Div_reg_closedate}
+    input text                                   //div/input[@formcontrolname='closeDateCtrl']      ${Div1_regi_closedate}
+    sleep       1
     double click element                         //div/input[@formcontrolname='closeDateCtrl']
-    sleep   1
+    sleep       1
 
     input text                                   //div/input[@formcontrolname='startDateCtrl']      ${Div_seasonstart}
+    sleep       1
     double click element                         //div/input[@formcontrolname='startDateCtrl']
-    sleep   1
+    sleep       1
 
     input text                                   //div/input[@formcontrolname='endDateCtrl']      ${Div_seasonend}
     double click element                         //div/input[@formcontrolname='endDateCtrl']
@@ -163,29 +155,29 @@ Division 1 Advance setting
     double click element                         //div/input[@formcontrolname='earlyBirdDiscountEndDateCtrl']
     input text                                   //div/input[@formcontrolname='earlyBirdDiscountEndDateCtrl']     ${Earlybirth_Date}
 
-#    Late free amount
-    wait until element is visible                //div/input[@formcontrolname='lateFeeAmountCtrl']       10
-    input text                                   //div/input[@formcontrolname='lateFeeAmountCtrl']     1000
+##    Late free amount
+#    wait until element is visible                //div/input[@formcontrolname='lateFeeAmountCtrl']       10
+#    input text                                   //div/input[@formcontrolname='lateFeeAmountCtrl']     1000
+#
+##    Late Fee Date
+#    wait until element is visible                //div/input[@formcontrolname='lateFeeStartDateCtrl']     10
+#    double click element                         //div/input[@formcontrolname='lateFeeStartDateCtrl']
+#    input text                                   //div/input[@formcontrolname='lateFeeStartDateCtrl']     ${Latefee_Date}
 
-#    Late Fee Date
-    wait until element is visible                //div/input[@formcontrolname='lateFeeStartDateCtrl']     10
-    double click element                         //div/input[@formcontrolname='lateFeeStartDateCtrl']
-    input text                                   //div/input[@formcontrolname='lateFeeStartDateCtrl']     ${Latefee_Date}
-
-    wait until element is visible                //button[@id='divisionSave']
-    click element                                //button[@id='divisionSave']
-    sleep      3
+#    wait until element is visible                //button[@id='divisionSave']
+#    click element                                //button[@id='divisionSave']
+#    sleep      3
 #    execute javascript                           window.scrollTo(0,-100)
 #    sleep      1
 #    click element                                //button/span/mat-icon[contains(text(),"clear")]
 #    sleep    2
 
 Click on the advanve button for the division 1 & Add custom disocunt
-    wait until element is visible                (//button/span/span[contains(text(),'Advanced')])[1]     10
-    sleep       1
-    click element                                (//button/span/span[contains(text(),'Advanced')])[1]
-    sleep       1
-    click element                                 //div/span[contains(text(),'Discounts & Fees')]
+#    wait until element is visible                (//button/span/span[contains(text(),'Advanced')])[1]     10
+#    sleep       1
+#    click element                                (//button/span/span[contains(text(),'Advanced')])[1]
+#    sleep       1
+#    click element                                 //div/span[contains(text(),'Discounts & Fees')]
     sleep       1
     click element                                 //button/span[contains(text(),'Add Custom Discount Or Fee Question')]
     sleep       1
@@ -238,7 +230,7 @@ Add Mandatory fee for the Division 1
     click element                                   //button/span/mat-icon[contains(text(),'clear')]
 
 Create Division 2
-    [Arguments]    ${D_Name}    ${D_Price}    ${Div_reg_startdate}      ${Div_reg_closedate}    ${Div_seasonstart}
+    [Arguments]    ${D_Name}    ${D_Price}    ${Div1_regi_startdate}      ${Div1_regi_closedate}    ${Div_seasonstart}
     ...     ${Div_seasonend}    ${Div_oldage}   ${Div_youngdate}
 #    go to   https://registration-setup-site-stage.bsbtest.com/registration-admin/8575/program/130096348/2
     wait until element is visible                   //button/span[contains(text(),' Add Division ')]    30
@@ -253,12 +245,12 @@ Create Division 2
     sleep       1
     click element                                   (//div[@class='mat-radio-container'])[2]
     sleep       1
-    input text                                      //div/input[@formcontrolname='openDateCtrl']      ${Div_reg_startdate}
+    input text                                      //div/input[@formcontrolname='openDateCtrl']      ${Div1_regi_startdate}
     sleep   1
     double click element                            //div/input[@formcontrolname='openDateCtrl']
-    sleep   1
+    sleep   2
 
-    input text                                      //div/input[@formcontrolname='closeDateCtrl']      ${Div_reg_closedate}
+    input text                                      //div/input[@formcontrolname='closeDateCtrl']      ${Div1_regi_closedate}
     sleep   1
     double click element                            //div/input[@formcontrolname='closeDateCtrl']
     sleep   1
@@ -320,7 +312,7 @@ Division 2 Advance Settings
     sleep     2
 
 Create Division 3
-    [Arguments]    ${D_Name}    ${D_Price}    ${Div_reg_startdate}      ${Div_reg_closedate}    ${Div_seasonstart}
+    [Arguments]    ${D_Name}    ${D_Price}    ${Div1_regi_startdate}      ${Div1_regi_closedate}    ${Div_seasonstart}
     ...     ${Div_seasonend}    ${Div_oldage}   ${Div_youngdate}
 #    go to   https://registration-setup-site-stage.bsbtest.com/registration-admin/8575/program/130096348/2
     wait until element is visible                   //button/span[contains(text(),' Add Division ')]    30
@@ -335,12 +327,11 @@ Create Division 3
     sleep       1
     click element                                   (//div[@class='mat-radio-container'])[2]
     sleep       1
-    input text                                      //div/input[@formcontrolname='openDateCtrl']      ${Div_reg_startdate}
+    input text                                      //div/input[@formcontrolname='openDateCtrl']      ${Div1_regi_startdate}
     sleep   1
     double click element                            //div/input[@formcontrolname='openDateCtrl']
     sleep   1
-
-    input text                                      //div/input[@formcontrolname='closeDateCtrl']      ${Div_reg_closedate}
+    input text                                      //div/input[@formcontrolname='closeDateCtrl']      ${Div1_regi_closedate}
     sleep   1
     double click element                            //div/input[@formcontrolname='closeDateCtrl']
     sleep   1
@@ -406,6 +397,58 @@ Fees & Discount
     scroll element into view                        (//div[@class='tshq-program-wizard-nav']/button/span)[3]
     sleep     1
 #    click element                                  (//button/span[contains(text(), " Save & Continue ")])[3]
+#    click element                                   (//div[@class='tshq-program-wizard-nav']/button/span)[3]
+
+Add Program level discount
+    sleep       1
+    click element         //button/span[contains(text(),'Add Custom Discount Or Fee Question')]
+    sleep       1
+    click element         //button[contains(text(),'Discount')]
+    sleep       1
+    input text            //div/input[@formcontrolname='prompt']    PL-D
+    sleep       2
+    input text            (//div/input[@formcontrolname='amount'])    1000
+    sleep       2
+    input text            //div/input[@formcontrolname='name']      PL-D
+    sleep       1
+    click element         (//*[@formcontrolname='applyOnOption']/mat-radio-button/label)[1]
+    sleep       1
+    click element          (//button[@iconclass='save-icon']/span)[1]
+
+Add Program Level Fees
+    sleep       2
+    click element         //button/span[contains(text(),'Add Custom Discount Or Fee Question')]
+    sleep       1
+    click element         //button[contains(text(),'Fee')]
+    sleep       1
+    input text            //div/input[@formcontrolname='prompt']    PL-F
+    sleep       2
+    input text            (//div/input[@formcontrolname='amount'])[2]    1000
+    sleep       2
+    input text            //div/input[@formcontrolname='name']      PL-F
+    sleep       1
+#    click element         (//*[@formcontrolname='applyOnOption']/mat-radio-button/label)[1]
+#    sleep       1
+    click element          (//button[@iconclass='save-icon']/span)[1]
+
+Add Program level Mandatory Fees
+    sleep       2
+    click element         //button/span[contains(text(),'Add Custom Discount Or Fee Question')]
+    sleep       1
+    click element         //button[contains(text(),' Mandatory Fee ')]
+    sleep       1
+    input text            //div/input[@formcontrolname='prompt']    PL-MF
+    sleep       2
+    input text            (//div/input[@formcontrolname='amount'])[3]    1000
+    sleep       2
+    input text            //div/input[@formcontrolname='name']      PL-MF
+    sleep       1
+    click element          (//button[@iconclass='save-icon']/span)[1]
+#    sleep       1
+#    click element          //button/span/span[contains(text(),'Save')]
+    sleep       1
+    scroll element into view                        (//div[@class='tshq-program-wizard-nav']/button/span)[3]
+    sleep     1
     click element                                   (//div[@class='tshq-program-wizard-nav']/button/span)[3]
 
 Team Staff Setup
