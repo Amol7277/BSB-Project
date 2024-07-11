@@ -30,11 +30,15 @@ Loing the Admin Account
     click element                              Name:continue
 
 Go to the Schedule
-    wait until element is visible               //a/span[contains(text(),'Schedules')]          300
-    sleep       2
-    mouse over                                  //a/span[contains(text(),'Schedules')]
+    wait until element is visible               //ul[@class='root-container']/li[6]          300
+    run keyword and continue on failure    wait until element is visible         //marketplace-toolbar[@class='hydrated']      100
     sleep       1
-    click element                               //a/span[contains(text(),'Manage Schedules')]
+#    mouse over                                  //a/span[contains(text(),'Schedules')]
+    mouse over                                  //ul[@class='root-container']/li[6]
+
+    wait until element is visible               (//ul/li[6]/div/ul/li/a/span)[1]        10
+    sleep       2
+    click element                               (//ul/li[6]/div/ul/li/a/span)[1]
 
 Create the Tournament Schedule
     wait until element is visible               //div[@id='newDiv']/a       50
@@ -47,12 +51,23 @@ Create the Tournament Schedule
 
 Fill the all Details of Tournament Schedule
     [Arguments]    ${schName}
+    run keyword and continue on failure    wait until element is visible    //marketplace-toolbar[@class='hydrated']    100
+    wait until element is visible               ScheduleName        10
     input text                                  ScheduleName            ${schName}
     sleep    2
-    click element                               //span[@aria-owns='ProgramList_listbox']/span
+    click element                               //*[contains(text(),'Select Program')]
+#    sleep       2
+#    click element                               //*[contains(text(),'Select Program')]
     sleep       2
+#    click element                               (//ul/li[contains(text(),'Test_LL')])[2]
     click element                               (//ul/li[contains(text(),'16_05_TC')])[2]
 
-    click element                               //span[@aria-owns='DivisionList_listbox']
-    click element                               //ul/li[contains(text(),'PPT')]
-    click element                               //a[contains(text(),'Division')]
+    ${Division}     create list     Free Agent      PPP     PPT
+    FOR    ${i}     IN    @{Division}
+        sleep       2
+        click element                               //span[@aria-owns='DivisionList_listbox']
+        sleep       2
+        click element                               //ul/li[contains(text(),'${i}')]
+        sleep       2
+        click element                               //a[contains(text(),'Division')]
+    END
