@@ -71,3 +71,10 @@ Fill the all Details of Tournament Schedule
         sleep       2
         click element                               //a[contains(text(),'Division')]
     END
+
+    sleep       2
+    click element                           //div[@id="scheduleDetailsTab"]/div[4]/div[1]/div/img[2]
+    sleep       2
+    click element                           (//span[@aria-owns='GameDurationHours_listbox'])[2]
+    sleep       2
+    click element                           (//ul[@id='GameDurationHours_listbox'])[2]/li[2]
