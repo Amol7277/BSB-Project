@@ -255,3 +255,5 @@ From Checkout page Complete the Order
     click element           //mat-checkbox[@name="termsAndConditions"]/label/div
     sleep       1
     click element           //button[@id="submitBtn"]
+
+#    Test
