@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0rc3 (Python 3.11.2 on win32)" generated="2024-10-19T10:54:10.577562" rpa="false" schemaversion="5">
+<suite id="s1" name="Programs" source="C:\Users\HP\PycharmProjects\BSB\1_Prg_Creation\Programs">
+<suite id="s1-s1" name="NonTryOutPrg" source="C:\Users\HP\PycharmProjects\BSB\1_Prg_Creation\Programs\NonTryOutPrg.robot">
+<test id="s1-s1-t1" name="Non Tryout Program Creation" line="15">
+<kw name="Open the browser and open the URL" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-19T10:54:10.833013" level="INFO">Opening browser 'chrome' to base url 'https://stagingsports.bsbtest.com/default.aspx?portalid=8575'.</msg>
+<arg>${URL}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-19T10:54:10.833013" elapsed="147.942746"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.777758" elapsed="0.070215"/>
+</kw>
+<status status="PASS" start="2024-10-19T10:54:10.830996" elapsed="148.016977"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2024-10-19T10:56:38.847973" level="INFO">${Current_Date_Time} = 2024-10-19 10:56:39</msg>
+<var>${Current_Date_Time}</var>
+<arg>exclude_millis=yes</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.847973" elapsed="0.000000"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2024-10-19T10:56:38.852992" level="INFO">${current_date} = 2024-10-19</msg>
+<var>${current_date}</var>
+<arg>result_format=%Y-%m-%d</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.852992" elapsed="0.000000"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2024-10-19T10:56:38.918698" level="INFO">${Div_regi_startdate} = 10-16-2024</msg>
+<var>${Div_regi_startdate}</var>
+<arg>${current_date}</arg>
+<arg>-3 days</arg>
+<arg>result_format=%m-%d-%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.852992" elapsed="0.065706"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2024-10-19T10:56:38.922709" level="INFO">${Div_regi_closedate} = 11-18-2024</msg>
+<var>${Div_regi_closedate}</var>
+<arg>${current_date}</arg>
+<arg>30 days</arg>
+<arg>result_format=%m-%d-%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.918698" elapsed="0.004011"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2024-10-19T10:56:38.934453" level="INFO">${Div_SeasonStart} = 10-21-2024</msg>
+<var>${Div_SeasonStart}</var>
+<arg>${current_date}</arg>
+<arg>2 days</arg>
+<arg>result_format=%m-%d-%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.922709" elapsed="0.011744"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2024-10-19T10:56:38.934453" level="INFO">${Div_SeasonEnd} = 12-03-2024</msg>
+<var>${Div_SeasonEnd}</var>
+<arg>${current_date}</arg>
+<arg>45 days</arg>
+<arg>result_format=%m-%d-%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.934453" elapsed="0.000000"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2024-10-19T10:56:38.943014" level="INFO">${EarlyBird_Date} = 10-24-2024</msg>
+<var>${EarlyBird_Date}</var>
+<arg>${current_date}</arg>
+<arg>5 days</arg>
+<arg>result_format=%m-%d-%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.934453" elapsed="0.008561"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2024-10-19T10:56:38.943014" level="INFO">${LateFee_Date} = 10-17-2024</msg>
+<var>${LateFee_Date}</var>
+<arg>${current_date}</arg>
+<arg>-2 days</arg>
+<arg>result_format=%m-%d-%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.943014" elapsed="0.000000"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2024-10-19T10:56:38.943014" level="INFO">${EMI 1} = 11-18-2024</msg>
+<var>${EMI 1}</var>
+<arg>${current_date}</arg>
+<arg>30 days</arg>
+<arg>result_format=%m-%d-%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.943014" elapsed="0.000000"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2024-10-19T10:56:38.943014" level="INFO">${EMI 2} = 12-18-2024</msg>
+<var>${EMI 2}</var>
+<arg>${current_date}</arg>
+<arg>60 days</arg>
+<arg>result_format=%m-%d-%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.943014" elapsed="0.000000"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2024-10-19T10:56:38.948022" level="INFO">${EMI 3} = 01-17-2025</msg>
+<var>${EMI 3}</var>
+<arg>${current_date}</arg>
+<arg>90 days</arg>
+<arg>result_format=%m-%d-%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.943014" elapsed="0.005008"/>
+</kw>
+<kw name="Login into the Portal">
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>20s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.948022" elapsed="0.000000"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.4</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.948022" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-19T10:56:38.953036" level="INFO">Clicking element 'id:dnn_dnnLOGIN_cmdLogin'.</msg>
+<arg>id:dnn_dnnLOGIN_cmdLogin</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-19T10:56:38.948022" elapsed="28.739576"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>name:email</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-19T10:57:07.687598" elapsed="1.533726"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-19T10:57:09.221324" level="INFO">Typing text 'amol.sonar+superadmin@stacksports.com' into text field 'name:email'.</msg>
+<arg>name:email</arg>
+<arg>${User_ID}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-19T10:57:09.221324" elapsed="1.716557"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-19T10:57:12.938156" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-19T10:57:10.937881" elapsed="2.000275"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-19T10:57:12.938156" level="INFO">Clicking element 'name:continue'.</msg>
+<arg>name:continue</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-19T10:57:12.938156" elapsed="0.874876"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>name:password</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-19T10:57:13.813032" elapsed="2.182967"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-19T10:57:15.995999" level="INFO">Typing text 'Test@1234' into text field 'name:password'.</msg>
+<arg>name:password</arg>
+<arg>${Pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-19T10:57:15.995999" elapsed="1.310946"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-19T10:57:17.306945" level="INFO">Clicking element 'name:continue'.</msg>
+<arg>name:continue</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-19T10:57:17.306945" elapsed="0.853092"/>
+</kw>
+<status status="PASS" start="2024-10-19T10:56:38.948022" elapsed="39.212015"/>
+</kw>
+<kw name="Open the registration form">
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>20s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-10-19T10:57:18.160037" elapsed="0.411227"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.4</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-10-19T10:57:18.571264" elapsed="0.002013"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2024-10-19T10:57:22.192176" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.101)
+Stacktrace:
+	GetHandleVerifier [0x00007FF68ADCB125+29573]
+	(No symbol) [0x00007FF68AD3FF50]
+	(No symbol) [0x00007FF68ABFB6EA]
+	(No symbol) [0x00007FF68ABCFCD5]
+	(No symbol) [0x00007FF68AC7EF67]
+	(No symbol) [0x00007FF68AC97FC1]
+	(No symbol) [0x00007FF68AC770A3]
+	(No symbol) [0x00007FF68AC412DF]
+	(No symbol) [0x00007FF68AC42441]
+	GetHandleVerifier [0x00007FF68B0FC76D+3377613]
+	GetHandleVerifier [0x00007FF68B147B67+3685831]
+	GetHandleVerifier [0x00007FF68B13CF8B+3641835]
+	GetHandleVerifier [0x00007FF68AE8B2A6+816390]
+	(No symbol) [0x00007FF68AD4B25F]
+	(No symbol) [0x00007FF68AD47084]
+	(No symbol) [0x00007FF68AD47220]
+	(No symbol) [0x00007FF68AD3607F]
+	BaseThreadInitThunk [0x00007FF855DD257D+29]
+	RtlUserThreadStart [0x00007FF85720AF28+40]
+</msg>
+<msg time="2024-10-19T10:57:22.193173" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.101)
+Stacktrace:
+	GetHandleVerifier [0x00007FF68ADCB125+29573]
+	(No symbol) [0x00007FF68AD3FF50]
+	(No symbol) [0x00007FF68ABFB6EA]
+	(No symbol) [0x00007FF68ABCFCD5]
+	(No symbol) [0x00007FF68AC7EF67]
+	(No symbol) [0x00007FF68AC97FC1]
+	(No symbol) [0x00007FF68AC770A3]
+	(No symbol) [0x00007FF68AC412DF]
+	(No symbol) [0x00007FF68AC42441]
+	GetHandleVerifier [0x00007FF68B0FC76D+3377613]
+	GetHandleVerifier [0x00007FF68B147B67+3685831]
+	GetHandleVerifier [0x00007FF68B13CF8B+3641835]
+	GetHandleVerifier [0x00007FF68AE8B2A6+816390]
+	(No symbol) [0x00007FF68AD4B25F]
+	(No symbol) [0x00007FF68AD47084]
+	(No symbol) [0x00007FF68AD47220]
+	(No symbol) [0x00007FF68AD3607F]
+	BaseThreadInitThunk [0x00007FF855DD257D+29]
+	RtlUserThreadStart [0x00007FF85720AF28+40]
+</msg>
+<arg>//ul/li/a/span[contains(text(), "Registration")]</arg>
+<arg>300</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2024-10-19T10:57:18.573277" elapsed="3.623199">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.101)
+Stacktrace:
+	GetHandleVerifier [0x00007FF68ADCB125+29573]
+	(No symbol) [0x00007FF68AD3FF50]
+	(No symbol) [0x00007FF68ABFB6EA]
+	(No symbol) [0x00007FF68ABCFCD5]
+	(No symbol) [0x00007FF68AC7EF67]
+	(No symbol) [0x00007FF68AC97FC1]
+	(No symbol) [0x00007FF68AC770A3]
+	(No symbol) [0x00007FF68AC412DF]
+	(No symbol) [0x00007FF68AC42441]
+	GetHandleVerifier [0x00007FF68B0FC76D+3377613]
+	GetHandleVerifier [0x00007FF68B147B67+3685831]
+	GetHandleVerifier [0x00007FF68B13CF8B+3641835]
+	GetHandleVerifier [0x00007FF68AE8B2A6+816390]
+	(No symbol) [0x00007FF68AD4B25F]
+	(No symbol) [0x00007FF68AD47084]
+	(No symbol) [0x00007FF68AD47220]
+	(No symbol) [0x00007FF68AD3607F]
+	BaseThreadInitThunk [0x00007FF855DD257D+29]
+	RtlUserThreadStart [0x00007FF85720AF28+40]
+</status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<arg>wait until element is visible</arg>
+<arg>//marketplace-toolbar[@class='hydrated']</arg>
+<arg>100</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" start="2024-10-19T10:57:22.196476" elapsed="0.000000"/>
+</kw>
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<arg>//ul/li/a/span[contains(text(), "Registration")]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-19T10:57:22.196476" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//ul/li/a/span[contains(text(), "Registration Forms")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-19T10:57:22.196476" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-10-19T10:57:18.160037" elapsed="4.036439">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.101)
+Stacktrace:
+	GetHandleVerifier [0x00007FF68ADCB125+29573]
+	(No symbol) [0x00007FF68AD3FF50]
+	(No symbol) [0x00007FF68ABFB6EA]
+	(No symbol) [0x00007FF68ABCFCD5]
+	(No symbol) [0x00007FF68AC7EF67]
+	(No symbol) [0x00007FF68AC97FC1]
+	(No symbol) [0x00007FF68AC770A3]
+	(No symbol) [0x00007FF68AC412DF]
+	(No symbol) [0x00007FF68AC42441]
+	GetHandleVerifier [0x00007FF68B0FC76D+3377613]
+	GetHandleVerifier [0x00007FF68B147B67+3685831]
+	GetHandleVerifier [0x00007FF68B13CF8B+3641835]
+	GetHandleVerifier [0x00007FF68AE8B2A6+816390]
+	(No symbol) [0x00007FF68AD4B25F]
+	(No symbol) [0x00007FF68AD47084]
+	(No symbol) [0x00007FF68AD47220]
+	(No symbol) [0x00007FF68AD3607F]
+	BaseThreadInitThunk [0x00007FF855DD257D+29]
+	RtlUserThreadStart [0x00007FF85720AF28+40]
+</status>
+</kw>
+<kw name="Select Non Tryout Program &amp; Select Activity">
+<status status="NOT RUN" start="2024-10-19T10:57:22.196476" elapsed="0.000000"/>
+</kw>
+<kw name="Complete 1 step of Program Settings">
+<arg>${NT_Program_Name}${Current_Date_Time}</arg>
+<status status="NOT RUN" start="2024-10-19T10:57:22.196476" elapsed="0.000000"/>
+</kw>
+<kw name="Create Division 1">
+<arg>${NT_Div1_Name}</arg>
+<arg>${Div_Price}</arg>
+<arg>${Div_regi_startdate}</arg>
+<arg>${Div_regi_closedate}</arg>
+<arg>${Div_SeasonStart}</arg>
+<arg>${Div_SeasonEnd}</arg>
+<arg>${OldDate}</arg>
+<arg>${YoungDate}</arg>
+<status status="NOT RUN" start="2024-10-19T10:57:22.196476" elapsed="0.000000"/>
+</kw>
+<kw name="Division 1 Advance setting">
+<arg>${EarlyBird_Date}</arg>
+<arg>${LateFee_Date}</arg>
+<arg>${EMI 1}</arg>
+<arg>${EMI 2}</arg>
+<arg>${EMI 3}</arg>
+<status status="NOT RUN" start="2024-10-19T10:57:22.196476" elapsed="0.000000"/>
+</kw>
+<kw name="Create the Waitlist Division 2">
+<arg>${NT_Div2_Name}</arg>
+<arg>${Div_Price}</arg>
+<arg>${Div_regi_startdate}</arg>
+<arg>${Div_regi_closedate}</arg>
+<arg>${Div_SeasonStart}</arg>
+<arg>${Div_SeasonEnd}</arg>
+<arg>${OldDate}</arg>
+<arg>${YoungDate}</arg>
+<status status="NOT RUN" start="2024-10-19T10:57:22.196476" elapsed="0.000000"/>
+</kw>
+<kw name="Division 2 Advance setting">
+<status status="NOT RUN" start="2024-10-19T10:57:22.196476" elapsed="0.000000"/>
+</kw>
+<kw name="Go to the Registration Question and Add question">
+<status status="NOT RUN" start="2024-10-19T10:57:22.196476" elapsed="0.000000"/>
+</kw>
+<kw name="Fees &amp; Discount">
+<status status="NOT RUN" start="2024-10-19T10:57:22.196476" elapsed="0.000000"/>
+</kw>
+<kw name="Add Program level fee &amp; discount">
+<status status="NOT RUN" start="2024-10-19T10:57:22.196476" elapsed="0.000000"/>
+</kw>
+<kw name="Go to the Team Staff Add Standard &amp; Custom Team Staff">
+<arg>${Vol_Name}</arg>
+<status status="NOT RUN" start="2024-10-19T10:57:22.196476" elapsed="0.006530"/>
+</kw>
+<kw name="Go to the Confirmation note and add some note into it">
+<status status="NOT RUN" start="2024-10-19T10:57:22.203006" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-10-19T10:54:10.830001" elapsed="191.373005">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.101)
+Stacktrace:
+	GetHandleVerifier [0x00007FF68ADCB125+29573]
+	(No symbol) [0x00007FF68AD3FF50]
+	(No symbol) [0x00007FF68ABFB6EA]
+	(No symbol) [0x00007FF68ABCFCD5]
+	(No symbol) [0x00007FF68AC7EF67]
+	(No symbol) [0x00007FF68AC97FC1]
+	(No symbol) [0x00007FF68AC770A3]
+	(No symbol) [0x00007FF68AC412DF]
+	(No symbol) [0x00007FF68AC42441]
+	GetHandleVerifier [0x00007FF68B0FC76D+3377613]
+	GetHandleVerifier [0x00007FF68B147B67+3685831]
+	GetHandleVerifier [0x00007FF68B13CF8B+3641835]
+	GetHandleVerifier [0x00007FF68AE8B2A6+816390]
+	(No symbol) [0x00007FF68AD4B25F]
+	(No symbol) [0x00007FF68AD47084]
+	(No symbol) [0x00007FF68AD47220]
+	(No symbol) [0x00007FF68AD3607F]
+	BaseThreadInitThunk [0x00007FF855DD257D+29]
+	RtlUserThreadStart [0x00007FF85720AF28+40]
+</status>
+</test>
+<status status="FAIL" start="2024-10-19T10:54:10.610100" elapsed="191.592906"/>
+</suite>
+<status status="FAIL" start="2024-10-19T10:54:10.589253" elapsed="191.613753"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Programs">Programs</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="NonTryOutPrg">Programs.NonTryOutPrg</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-10-19T10:57:22.192176" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.101)
+Stacktrace:
+	GetHandleVerifier [0x00007FF68ADCB125+29573]
+	(No symbol) [0x00007FF68AD3FF50]
+	(No symbol) [0x00007FF68ABFB6EA]
+	(No symbol) [0x00007FF68ABCFCD5]
+	(No symbol) [0x00007FF68AC7EF67]
+	(No symbol) [0x00007FF68AC97FC1]
+	(No symbol) [0x00007FF68AC770A3]
+	(No symbol) [0x00007FF68AC412DF]
+	(No symbol) [0x00007FF68AC42441]
+	GetHandleVerifier [0x00007FF68B0FC76D+3377613]
+	GetHandleVerifier [0x00007FF68B147B67+3685831]
+	GetHandleVerifier [0x00007FF68B13CF8B+3641835]
+	GetHandleVerifier [0x00007FF68AE8B2A6+816390]
+	(No symbol) [0x00007FF68AD4B25F]
+	(No symbol) [0x00007FF68AD47084]
+	(No symbol) [0x00007FF68AD47220]
+	(No symbol) [0x00007FF68AD3607F]
+	BaseThreadInitThunk [0x00007FF855DD257D+29]
+	RtlUserThreadStart [0x00007FF85720AF28+40]
+</msg>
+</errors>
+</robot>

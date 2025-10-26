@@ -1,0 +1,27 @@
+==============================================================================
+Programs                                                                      
+==============================================================================
+Programs.TryOutPrg                                                            
+==============================================================================
+Tryout Program Creation                                                 
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\HP\PycharmProjects\BSB\1_Prg_Creation\Programs\TryOutPrg.robot:15
+    T:  Tryout Program Creation    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\HP\PycharmProjects\BSB\1_Prg_Creation\Programs\TryOutPrg.robot:31
+      Login into the Portal    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\HP\PycharmProjects\BSB\1_Prg_Creation\Programs\TryOutPrg.robot:55
+      Click Element    id:dnn_dnnLOGIN_cmdLogin
+______________________________________________________________________________
+| FAIL |
+Element with locator 'id:dnn_dnnLOGIN_cmdLogin' not found.
+------------------------------------------------------------------------------
+Programs.TryOutPrg                                                    | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Programs                                                              | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  C:\Users\HP\PycharmProjects\BSB\pabot_results\3\output.xml

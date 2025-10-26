@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0rc3 (Python 3.11.2 on win32)" generated="2024-10-19T10:54:10.577562" rpa="false" schemaversion="5">
+<suite id="s1" name="Programs" source="C:\Users\HP\PycharmProjects\BSB\1_Prg_Creation\Programs">
+<suite id="s1-s1" name="FreePrgCreation" source="C:\Users\HP\PycharmProjects\BSB\1_Prg_Creation\Programs\FreePrgCreation.robot">
+<test id="s1-s1-t1" name="Free Program Creation" line="12">
+<kw name="Open the browser and open the URL" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-19T10:54:10.826481" level="INFO">Opening browser 'chrome' to base url 'https://stagingsports.bsbtest.com/default.aspx?portalid=8575'.</msg>
+<arg>${URL}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-19T10:54:10.826481" elapsed="62.422635"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-10-19T10:55:13.249593" elapsed="0.277585"/>
+</kw>
+<status status="PASS" start="2024-10-19T10:54:10.824484" elapsed="62.702694"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2024-10-19T10:55:13.529176" level="INFO">${Current_Date_Time} = 2024-10-19 10:55:14</msg>
+<var>${Current_Date_Time}</var>
+<arg>exclude_millis=yes</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2024-10-19T10:55:13.528175" elapsed="0.001996"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2024-10-19T10:55:13.532692" level="INFO">${current_date} = 2024-10-19</msg>
+<var>${current_date}</var>
+<arg>result_format=%Y-%m-%d</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2024-10-19T10:55:13.530686" elapsed="0.002006"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2024-10-19T10:55:13.591007" level="INFO">${Div_regi_startdate} = 10-16-2024</msg>
+<var>${Div_regi_startdate}</var>
+<arg>${current_date}</arg>
+<arg>-3 days</arg>
+<arg>result_format=%m-%d-%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2024-10-19T10:55:13.532692" elapsed="0.058315"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2024-10-19T10:55:13.592023" level="INFO">${Div_regi_closedate} = 11-18-2024</msg>
+<var>${Div_regi_closedate}</var>
+<arg>${current_date}</arg>
+<arg>30 days</arg>
+<arg>result_format=%m-%d-%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2024-10-19T10:55:13.591007" elapsed="0.001016"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2024-10-19T10:55:13.593014" level="INFO">${Div_SeasonStart} = 10-21-2024</msg>
+<var>${Div_SeasonStart}</var>
+<arg>${current_date}</arg>
+<arg>2 days</arg>
+<arg>result_format=%m-%d-%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2024-10-19T10:55:13.592023" elapsed="0.000991"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2024-10-19T10:55:13.595007" level="INFO">${Div_SeasonEnd} = 12-03-2024</msg>
+<var>${Div_SeasonEnd}</var>
+<arg>${current_date}</arg>
+<arg>45 days</arg>
+<arg>result_format=%m-%d-%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2024-10-19T10:55:13.594009" elapsed="0.000998"/>
+</kw>
+<kw name="Login in the Portal">
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>20s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-10-19T10:55:13.597914" elapsed="0.004544"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.4</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-10-19T10:55:13.602458" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-19T10:55:13.624033" level="INFO">Clicking element 'ID:dnn_dnnLOGIN_cmdLogin'.</msg>
+<msg time="2024-10-19T10:55:34.623327" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-10-19T10:55:34.623327" level="FAIL">Element with locator 'ID:dnn_dnnLOGIN_cmdLogin' not found.</msg>
+<arg>ID:dnn_dnnLOGIN_cmdLogin</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-10-19T10:55:13.602458" elapsed="21.034524">Element with locator 'ID:dnn_dnnLOGIN_cmdLogin' not found.</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>email</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-10-19T10:55:34.637980" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>Name:email</arg>
+<arg>${UserName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-19T10:55:34.638978" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>Name:continue</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-19T10:55:34.639975" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>password</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-10-19T10:55:34.639975" elapsed="0.000000"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<arg>Name:password</arg>
+<arg>${Password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-19T10:55:34.640971" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>Name:continue</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-19T10:55:34.640971" elapsed="0.000000"/>
+</kw>
+<arg>${User_ID}</arg>
+<arg>${Pwd}</arg>
+<status status="FAIL" start="2024-10-19T10:55:13.595007" elapsed="21.045964">Element with locator 'ID:dnn_dnnLOGIN_cmdLogin' not found.</status>
+</kw>
+<kw name="Go to the Regitration forms">
+<status status="NOT RUN" start="2024-10-19T10:55:34.642005" elapsed="0.000000"/>
+</kw>
+<kw name="Click the Add Program button and Select Free Program option">
+<status status="NOT RUN" start="2024-10-19T10:55:34.642005" elapsed="0.000961"/>
+</kw>
+<kw name="Select the Activity">
+<arg>${Activity}</arg>
+<status status="NOT RUN" start="2024-10-19T10:55:34.642966" elapsed="0.000000"/>
+</kw>
+<kw name="Complete the Program setting form">
+<arg>${Free_Program_Name}${Current_Date_Time}</arg>
+<status status="NOT RUN" start="2024-10-19T10:55:34.643512" elapsed="0.000000"/>
+</kw>
+<kw name="Create Division 1">
+<arg>${Free_Div1_Name}</arg>
+<arg>${Div_regi_startdate}</arg>
+<arg>${Div_regi_closedate}</arg>
+<arg>${Div_SeasonStart}</arg>
+<arg>${Div_SeasonEnd}</arg>
+<arg>${OldDate}</arg>
+<arg>${YoungDate}</arg>
+<status status="NOT RUN" start="2024-10-19T10:55:34.643512" elapsed="0.000000"/>
+</kw>
+<kw name="Create Division 2">
+<arg>${Free_Div2_Name}</arg>
+<arg>${Div_regi_startdate}</arg>
+<arg>${Div_regi_closedate}</arg>
+<arg>${Div_SeasonStart}</arg>
+<arg>${Div_SeasonEnd}</arg>
+<arg>${OldDate}</arg>
+<arg>${YoungDate}</arg>
+<status status="NOT RUN" start="2024-10-19T10:55:34.643512" elapsed="0.000000"/>
+</kw>
+<kw name="Division 2 Advance Settings">
+<status status="NOT RUN" start="2024-10-19T10:55:34.644549" elapsed="0.000000"/>
+</kw>
+<kw name="Go to the Registration Question and Add question">
+<status status="NOT RUN" start="2024-10-19T10:55:34.644549" elapsed="0.000000"/>
+</kw>
+<kw name="Go to the Discount &amp; Fees and varify is should not allow to assess for this program">
+<status status="NOT RUN" start="2024-10-19T10:55:34.644549" elapsed="0.000000"/>
+</kw>
+<kw name="Go to the Team Staff Add Standard &amp; Custom Team Staff">
+<arg>${Vol_Name}</arg>
+<status status="NOT RUN" start="2024-10-19T10:55:34.645756" elapsed="0.000000"/>
+</kw>
+<kw name="Go to the Confirmation note and add some note into it">
+<status status="NOT RUN" start="2024-10-19T10:55:34.645756" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-10-19T10:54:10.824484" elapsed="83.821272">Element with locator 'ID:dnn_dnnLOGIN_cmdLogin' not found.</status>
+</test>
+<status status="FAIL" start="2024-10-19T10:54:10.613732" elapsed="84.033019"/>
+</suite>
+<status status="FAIL" start="2024-10-19T10:54:10.592844" elapsed="84.054869"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Programs">Programs</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="FreePrgCreation">Programs.FreePrgCreation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,8 @@
+datasources:2c17781f07f19537682bd4532a62016412f3b5f3
+commandlineoptions:65f95c924ba97541f47949701c4e3c51192a5b43
+suitesfrom:no-suites-from-option
+file:c55f14e9a4e132b9249de4463ddcf11c147db274
+--test Programs.FreePrgCreation.Free Program Creation
+--test Programs.NonTryOutPrg.Non Tryout Program Creation
+--test Programs.TeamCoachPrg.TeamCoach Program Creation
+--test Programs.TryOutPrg.Tryout Program Creation

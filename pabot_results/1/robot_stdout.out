@@ -1,0 +1,49 @@
+==============================================================================
+Programs                                                                      
+==============================================================================
+Programs.NonTryOutPrg                                                         
+==============================================================================
+Non Tryout Program Creation                                             
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\HP\PycharmProjects\BSB\1_Prg_Creation\Programs\NonTryOutPrg.robot:15
+    T:  Non Tryout Program Creation    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\HP\PycharmProjects\BSB\1_Prg_Creation\Programs\NonTryOutPrg.robot:32
+      Open the registration form    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\HP\PycharmProjects\BSB\1_Prg_Creation\Programs\NonTryOutPrg.robot:68
+      Wait Until Element Is Visible    //ul/li/a/span[contains(text(), "Registration")]    300
+______________________________________________________________________________
+| FAIL |
+NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.101)
+Stacktrace:
+	GetHandleVerifier [0x00007FF68ADCB125+29573]
+	(No symbol) [0x00007FF68AD3FF50]
+	(No symbol) [0x00007FF68ABFB6EA]
+	(No symbol) [0x00007FF68ABCFCD5]
+	(No symbol) [0x00007FF68AC7EF67]
+	(No symbol) [0x00007FF68AC97FC1]
+	(No symbol) [0x00007FF68AC770A3]
+	(No symbol) [0x00007FF68AC412DF]
+	(No symbol) [0x00007FF68AC42441]
+	GetHandleVerifier [0x00007FF68B0FC76D+3377613]
+	GetHandleVerifier [0x00007FF68B147B67+3685831]
+	GetHandleVerifier [0x00007FF68B13CF8B+3641835]
+	GetHandleVerifier [0x00007FF68AE8B2A6+816390]
+	(No symbol) [0x00007FF68AD4B25F]
+	(No symbol) [0x00007FF68AD47084]
+	(No symbol) [0x00007FF68AD47220]
+	(No symbol) [0x00007FF68AD3607F]
+	BaseThreadInitThunk [0x00007FF855DD257D+29]
+	RtlUserThreadStart [0x00007FF85720AF28+40]
+------------------------------------------------------------------------------
+Programs.NonTryOutPrg                                                 | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Programs                                                              | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  C:\Users\HP\PycharmProjects\BSB\pabot_results\1\output.xml

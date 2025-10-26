@@ -1,0 +1,29 @@
+==============================================================================
+Programs                                                                      
+==============================================================================
+Programs.FreePrgCreation                                                      
+==============================================================================
+Free Program Creation                                                   
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\HP\PycharmProjects\BSB\1_Prg_Creation\Programs\FreePrgCreation.robot:12
+    T:  Free Program Creation    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\HP\PycharmProjects\BSB\1_Prg_Creation\Programs\FreePrgCreation.robot:21
+      Login in the Portal    ${User_ID}    ${Pwd}
+      |  ${User_ID} = amol.sonar+superadmin@stacksports.com (str)
+      |  ${Pwd} = Test@1234 (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\HP\PycharmProjects\BSB\1_Prg_Creation\Programs\FreePrgCreation.robot:46
+      Click Element    ID:dnn_dnnLOGIN_cmdLogin
+______________________________________________________________________________
+| FAIL |
+Element with locator 'ID:dnn_dnnLOGIN_cmdLogin' not found.
+------------------------------------------------------------------------------
+Programs.FreePrgCreation                                              | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Programs                                                              | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  C:\Users\HP\PycharmProjects\BSB\pabot_results\0\output.xml

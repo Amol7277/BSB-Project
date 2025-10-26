@@ -21,7 +21,7 @@ ${Cvv}              123
 ${Zip Code}         90033
 
 *** Test Cases ***
-Admin Manual Order
+Single Player - Admin Manual Order
     Open the browser and login as superadmin
     Go to the Admin manual page & Search the User
     Click on the available program button
@@ -218,18 +218,18 @@ From Checkout page Complete the Order
     set selenium implicit wait            20s
     set selenium speed                    0.4
 
-    wait until element is visible           //span/mat-panel-title[contains(text(),'Donations')]         100
-
-    scroll element into view        (//div[@class='mat-radio-outer-circle'])[2]
+    wait until element is visible    //span/mat-panel-title[contains(text(),'Coupon Code')]     100
+    repeat keyword      2 times     scroll element into view    (//*[@class="mat-radio-button mat-primary"])[2]/label/div[1]
     sleep       3
-    click element                (//div[@class='mat-radio-outer-circle'])[2]
-    sleep       1
+    click element       (//*[@class="mat-radio-button mat-primary"])[2]/label/div[1]
+
+    sleep       2
     scroll element into view            //div/mat-select[@formcontrolname="paymentMethod"]
     sleep       1
     click element                       //div/mat-select[@formcontrolname="paymentMethod"]
     sleep       1
     click element                       //mat-option/span[contains(text(),'Credit Card')]
-    sleep       1
+    sleep       10
 
     select frame                //iframe[@id='sp-js-api']
 
@@ -255,5 +255,3 @@ From Checkout page Complete the Order
     click element           //mat-checkbox[@name="termsAndConditions"]/label/div
     sleep       1
     click element           //button[@id="submitBtn"]
-
-#    Test
