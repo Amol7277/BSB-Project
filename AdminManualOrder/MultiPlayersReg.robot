@@ -92,9 +92,10 @@ Select the View Division for Multiple Players
     FOR    ${ply}    IN    @{Players}
         sleep    1
         repeat keyword      3 times     scroll element into view    //h3[contains(text(),'${ply}')]
-#        sleep    1
-        ${Status}  run keyword and return status    element should be visible     //mat-expansion-panel-header[@role ='button']/span/p[2]/span
-        run keyword if     ${Status}=='False'    click element    //h3[contains(text(),'${ply}')]
+        sleep    1
+        ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    //mat-expansion-panel-header[@role='button']/span/p[2]/span
+        log     ${is_visible}
+        Run Keyword Unless    ${is_visible}    Click Element    //h3[contains(text(),'${ply}')]
 
 #        click element    //h3[contains(text(),'${ply}')]
 #        sleep    1
@@ -137,14 +138,18 @@ Select the View Division for Multiple Players
             scroll element into view    (//button/span[contains(text(),'Select')])[${index2}]
             sleep       1
             click element    (//button/span[contains(text(),'Select')])[${index2}]
-
             sleep       5
 #            repeat keyword      3 times         execute javascript        window.scrollTo(0,document.body.scrollHeight)
-            repeat keyword      3 times         scroll element into view    //button/span[contains(text(),'Next Player')]
-            sleep       3
-            click element       //button/span[contains(text(),'Next Player')]
+#            repeat keyword      3 times         scroll element into view    //button/span[contains(text(),'Next Player')]
+#            sleep       3
+#            click element       //button/span[contains(text(),'Next Player')]
+            click element    //h3[contains(text(),'${ply}')]
 
+#            sleep       3
+#            ${Status}  run keyword and return status    element should be visible     //mat-expansion-panel-header[@role ='button']/span/p[2]/span
+#            run keyword if     ${Status}=='True'    click element    //h3[contains(text(),'${ply}')]
     END
+
 
 Select the View Division
     set selenium implicit wait            20s
