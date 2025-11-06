@@ -1,8 +1,14 @@
 *** Settings ***
 Library     SeleniumLibrary
+Library    Collections
 
 
 *** Variables ***
+${implecit_wait}        20s
+${selenium_speed}       0.4
+
+
+
 ${URL}          https://leagues.bluesombrero.com/default.aspx?portalid=9003
 ${Browser}      chrome
 ${User_ID}      amol.sonar+superadmin@stacksports.com
@@ -23,17 +29,24 @@ ${Zip Code}         90033
 *** Test Cases ***
 Multiple Players - Admin Manual Order
     Open the browser and login as superadmin
+#    Test 1
     Go to the Admin manual page & Search the User
     Click on the available program button
+#    Test
     Select the View Division for Multiple Players
+    Continue from the program questions page
+    Skip from the Volunteer Listing page
+    Skip the registration store page
+#    Select the Payment Option and click on Continue button
+
 
 *** Keywords ***
 Open the browser and login as superadmin
-    set selenium implicit wait            20s
-    set selenium speed                    0.4
+    set selenium implicit wait      ${implecit_wait}
+    set selenium speed              ${selenium_speed}
+
     open browser    ${URL}      ${Browser}
     maximize browser window
-
 
     click element                                id:dnn_dnnLOGIN_cmdLogin
     wait until element is visible                name:email
@@ -46,8 +59,8 @@ Open the browser and login as superadmin
     click element                                name:continue
 
 Go to the Admin manual page & Search the User
-    set selenium implicit wait            20s
-    set selenium speed                    0.4
+    set selenium implicit wait      ${implecit_wait}
+    set selenium speed              ${selenium_speed}
 
     wait until element is visible           //div/span[contains(text(),'Dashboard')]        100
 
@@ -62,8 +75,8 @@ Go to the Admin manual page & Search the User
     press keys            //div/input[@placeholder="Search"]     ENTER
 
 Click on the available program button
-    set selenium implicit wait            20s
-    set selenium speed                    0.4
+    set selenium implicit wait      ${implecit_wait}
+    set selenium speed              ${selenium_speed}
 
     wait until element is visible            //div/span[@class='h3 text-scheme-participants']       100
 
@@ -81,25 +94,59 @@ Click on the available program button
     END
     click element    (//a[@data-bind='click:navigateToRegisterNewProgramPage']/i/span)[${index}]
 
+Test 1
+   set selenium implicit wait      ${implecit_wait}
+    set selenium speed              ${selenium_speed}
+
+
+    wait until element is visible           //div/span[contains(text(),'Dashboard')]        100
+
+    go to       https://registration.bluesombrero.com/9003/program-questions?userId=86714206&playerId=85338135
+
+Test
+    set selenium implicit wait      ${implecit_wait}
+    set selenium speed              ${selenium_speed}
+
+
+    wait until element is visible       //*[@class="programs-available"]    50
+
+    ${player}=  get webelements    //*[@class="programs-available"]
+    ${total_players}=    Get Length    ${player}
+    Log To Console    Total Players Found: ${total_players}
+
+        FOR     ${ply}      IN     @{player}
+            log     ${ply.text}
+            log to console    ${ply.text}
+#            IF     ${ply.text}
+        END
+
+    ${last_player}=    Get From List    ${player}     -1
+    Click Element    ${last_player}
+    Sleep    1s
+
+    ${is_skip_visible}=    Run Keyword And Return Status    Element Should Be Visible    (//button/span[contains(.,'Skip')])[4]
+    repeat keyword    3     scroll element into view        (//button/span[contains(.,'Skip')])[4]
+    Run Keyword If    ${is_skip_visible}    Click Element    (//button/span[contains(.,'Skip')])[4]
+    ...    ELSE    Click Element    //button/span[contains(.,'Continue')]
+
 Select the View Division for Multiple Players
+    set selenium implicit wait      ${implecit_wait}
+    set selenium speed              ${selenium_speed}
 
-    set selenium implicit wait            20s
-    set selenium speed                    0.4
+    @{Players}=     create list     P1 of 1410      P3 of 1410      P2 of 1410
 
-    @{Players}=     create list     P1 of 1410      P3 of 1410
-#    ${AvailPrgforPlayer}=     get webelements     //h3[@class='programs-available']
-#    ${index}=   set variable    1
+    ${player}=  get webelements    //*[@class="programs-available"]
+    ${total_players}=    Get Length    ${player}
+    Log To Console    Total Players Found: ${total_players}
+
     FOR    ${ply}    IN    @{Players}
         sleep    1
-        repeat keyword      3 times     scroll element into view    //h3[contains(text(),'${ply}')]
+#        repeat keyword      3 times     scroll element into view    //h3[contains(text(),'${ply}')]
+        scroll element into view        //h3[contains(text(),'${ply}')]
         sleep    1
         ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    //mat-expansion-panel-header[@role='button']/span/p[2]/span
         log     ${is_visible}
         Run Keyword Unless    ${is_visible}    Click Element    //h3[contains(text(),'${ply}')]
-
-#        click element    //h3[contains(text(),'${ply}')]
-#        sleep    1
-#        click element    //h3[contains(text(),'${ply}')]
 
         #Findings for Available Programs
         wait until element is visible           //mat-expansion-panel-header[@role ='button']/span/p[2]/span       100
@@ -126,9 +173,9 @@ Select the View Division for Multiple Players
         ${index2}=   set variable    1
 
             FOR    ${Div}    IN    @{Divisions}
-                sleep    1
+#                sleep    1
                 scroll element into view    ${Div}
-                sleep    1
+#                sleep    1
                 Log     ${Div.text}
                 Exit For Loop If    '${Division_Name}' == '${Div.text}'
                 ${index2}=   evaluate    ${index2} + 1
@@ -138,66 +185,80 @@ Select the View Division for Multiple Players
             scroll element into view    (//button/span[contains(text(),'Select')])[${index2}]
             sleep       1
             click element    (//button/span[contains(text(),'Select')])[${index2}]
-            sleep       5
-#            repeat keyword      3 times         execute javascript        window.scrollTo(0,document.body.scrollHeight)
-#            repeat keyword      3 times         scroll element into view    //button/span[contains(text(),'Next Player')]
-#            sleep       3
-#            click element       //button/span[contains(text(),'Next Player')]
+
+            wait until element is visible       //h3[contains(text(),'${ply}')]     20
+
             click element    //h3[contains(text(),'${ply}')]
 
-#            sleep       3
-#            ${Status}  run keyword and return status    element should be visible     //mat-expansion-panel-header[@role ='button']/span/p[2]/span
-#            run keyword if     ${Status}=='True'    click element    //h3[contains(text(),'${ply}')]
     END
 
+    ${last_player}=    Get From List    ${player}     -1
+    Click Element    ${last_player}
+    Sleep    1s
 
-Select the View Division
-    set selenium implicit wait            20s
-    set selenium speed                    0.4
+    repeat keyword    3     scroll element into view        (//button/span[contains(.,'Skip')])[4]
+    ${is_skip_visible}=    Run Keyword And Return Status    Element Should Be Visible    (//button/span[contains(.,'Skip')])[4]
+    Run Keyword If    ${is_skip_visible}    Click Element    (//button/span[contains(.,'Skip')])[4]
+    ...    ELSE    Click Element    //button/span[contains(.,'Continue')]
 
-    wait until element is visible           //mat-expansion-panel-header[@role ='button']/span/p[2]/span       100
+Continue from the program questions page
+    set selenium implicit wait      ${implecit_wait}
+    set selenium speed              ${selenium_speed}
 
-    ${Programs}=     get webelements        //mat-expansion-panel-header[@role ='button']/span/p[2]/span
-    ${index}=   set variable    1
+    ${Players}=     get webelements     //span[@class='name-label notranslate']
 
-    FOR    ${Prg}    IN    @{Programs}
-        sleep    1
-        scroll element into view    ${Prg}
-        sleep    1
-        Log     ${Prg.text}
-        Exit For Loop If    '${Program_Name}' == '${Prg.text}'
-        ${index}=   evaluate    ${index} + 1
-        Log    ${index}
+    ${index1}=   set variable    1
+    FOR     ${ply}      IN    @{Players}
+        sleep       2
+        ${is_next_visible}=    Run Keyword And Return Status    Element Should Be Visible    (//button/span[contains(.,"Next Player")])[${index1}]
+        Run Keyword If    ${is_next_visible}    Click Element    (//button/span[contains(.,"Next Player")])[${index1}]
+        ...    ELSE    Click Element    //button/span[contains(.,'Continue')]
+
+        ${index1}=   evaluate    ${index1} + 1
+        log to console      ${index1}
     END
-    scroll element into view    (//button/span[contains(text(),'View Divisions')])[${index}]
-    click element    (//button/span[contains(text(),'View Divisions')])[${index}]
 
-Select Division & Continue
-    set selenium implicit wait            20s
-    set selenium speed                    0.4
+Skip from the Volunteer Listing page
+    set selenium implicit wait      ${implecit_wait}
+    set selenium speed              ${selenium_speed}
 
-    wait until element is visible            //mat-card-title[@class='mat-card-title']/div      100
+    wait until element is visible           //button/span[contains(text(),'Skip')]        50
 
-    ${Divisions}=     get webelements        //mat-card-title[@class='mat-card-title']/div
-    ${index}=   set variable    1
-
-    FOR    ${Div}    IN    @{Divisions}
-        sleep    1
-        scroll element into view    ${Div}
-        sleep    1
-        Log     ${Div.text}
-        Exit For Loop If    '${Division_Name}' == '${Div.text}'
-        ${index}=   evaluate    ${index} + 1
-        Log    ${index}
-    END
-    sleep       1
-    scroll element into view    (//button/span[contains(text(),'Select')])[${index}]
-    sleep       1
-    click element    (//button/span[contains(text(),'Select')])[${index}]
-
-    sleep       5
     repeat keyword      3 times         execute javascript        window.scrollTo(0,document.body.scrollHeight)
-#    sleep       2
-#    execute javascript      window.scrollTo(0,document.body.scrollHeight)
-    sleep       3
+    sleep       2
+    click element       //button/span[contains(text(),'Skip')]
+
+Skip the registration store page
+    set selenium implicit wait      ${implecit_wait}
+    set selenium speed              ${selenium_speed}
+
+    wait until element is visible           //button/span[contains(text(),'Next')]        50
+
+    scroll element into view                //button/span[contains(text(),'Next')]
+    sleep    2
+    click element                           //button/span[contains(text(),'Next')]
+
+    sleep    2
+    wait until element is visible           //button/span[contains(text(),'Skip')]        50
+
+    repeat keyword      3 times         execute javascript        window.scrollTo(0,document.body.scrollHeight)
+    sleep       2
+    click element       //button/span[contains(text(),'Skip')]
+
+Select the Payment Option and click on Continue button
+    set selenium implicit wait            20s
+    set selenium speed                    0.4
+
+    wait until element is visible           //div[@class='payment-option']/span         50
+
+    click element       //div[@class='payment-option']/span
+    sleep      2
+    click element       //button/span[contains(text(),'Select')]
+
+    sleep       2
+
+    scroll element into view        //button/span[contains(text(),'Continue')]
+    sleep       2
     click element       //button/span[contains(text(),'Continue')]
+
+
