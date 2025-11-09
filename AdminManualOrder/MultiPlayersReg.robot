@@ -37,7 +37,8 @@ Multiple Players - Admin Manual Order
     Continue from the program questions page
     Skip from the Volunteer Listing page
     Skip the registration store page
-#    Select the Payment Option and click on Continue button
+    Select the Payment Option and click on Continue button
+    From Checkout page Complete the Order
 
 
 *** Keywords ***
@@ -96,7 +97,7 @@ Click on the available program button
 
 Test 1
    set selenium implicit wait      ${implecit_wait}
-    set selenium speed              ${selenium_speed}
+   set selenium speed              ${selenium_speed}
 
 
     wait until element is visible           //div/span[contains(text(),'Dashboard')]        100
@@ -186,8 +187,8 @@ Select the View Division for Multiple Players
             sleep       1
             click element    (//button/span[contains(text(),'Select')])[${index2}]
 
-            wait until element is visible       //h3[contains(text(),'${ply}')]     20
-
+            wait until element is visible       //h3[contains(text(),'${ply}')]     50
+            sleep       1
             click element    //h3[contains(text(),'${ply}')]
 
     END
@@ -196,7 +197,8 @@ Select the View Division for Multiple Players
     Click Element    ${last_player}
     Sleep    1s
 
-    repeat keyword    3     scroll element into view        (//button/span[contains(.,'Skip')])[4]
+#    repeat keyword    3     scroll element into view        (//button/span[contains(.,'Skip')])[4]
+    execute javascript                    window.scrollTo(0,document.body.scrollHeight)
     ${is_skip_visible}=    Run Keyword And Return Status    Element Should Be Visible    (//button/span[contains(.,'Skip')])[4]
     Run Keyword If    ${is_skip_visible}    Click Element    (//button/span[contains(.,'Skip')])[4]
     ...    ELSE    Click Element    //button/span[contains(.,'Continue')]
@@ -246,19 +248,69 @@ Skip the registration store page
     click element       //button/span[contains(text(),'Skip')]
 
 Select the Payment Option and click on Continue button
-    set selenium implicit wait            20s
-    set selenium speed                    0.4
+    set selenium implicit wait      ${implecit_wait}
+    set selenium speed              ${selenium_speed}
 
-    wait until element is visible           //div[@class='payment-option']/span         50
+    wait until element is visible       //span[contains(text(),' Payment Options')]     100
 
-    click element       //div[@class='payment-option']/span
-    sleep      2
-    click element       //button/span[contains(text(),'Select')]
-
-    sleep       2
-
-    scroll element into view        //button/span[contains(text(),'Continue')]
-    sleep       2
+    ${payment_options}      get webelements         //div[@class="payment-option"]
+    ${index}=   set variable    1
+    FOR     ${opt}      IN      @{payment_options}
+        click element       ${opt}
+        sleep    1
+        click element       //div[contains(text(),'Payment Plans')]
+        sleep    1
+        click element       //button/span[contains(text(),'Select')]
+        sleep    1
+    END
+    sleep    1
     click element       //button/span[contains(text(),'Continue')]
+
+From Checkout page Complete the Order
+    set selenium implicit wait      ${implecit_wait}
+    set selenium speed              ${selenium_speed}
+
+    wait until element is visible    //span/mat-panel-title[contains(text(),'Coupon Code')]     100
+
+    repeat keyword      2 times     scroll element into view    (//*[@class="mat-radio-button mat-primary"])[2]/label/div[1]
+
+    sleep       3
+
+#    click element       //button/span[contains(text(),'Apply')]
+    click element       (//*[@class="mat-radio-button mat-primary"])[2]/label/div[1]
+
+    sleep       2
+    scroll element into view            //div/mat-select[@formcontrolname="paymentMethod"]
+    sleep       1
+    click element                       //div/mat-select[@formcontrolname="paymentMethod"]
+    sleep       1
+    click element                       //mat-option/span[contains(text(),'Credit Card')]
+
+    sleep       10
+
+    select frame                //iframe[@id='sp-js-api']
+
+    sleep       1
+    wait until element is visible       //div/input[@placeholder="Your card number"]          100
+    scroll element into view            //div/input[@placeholder="Your card number"]
+
+    input text              //div/input[@placeholder="Your Name"]       ${CardHolderName}
+    sleep       1
+    input text              //div/input[@placeholder="Your card number"]    ${CardNumber}
+    sleep       1
+    input text              //div/input[@placeholder="MM/YY"]           ${Expiration}
+    sleep       1
+    input text              //div/input[@placeholder="CVV"]             ${Cvv}
+    sleep       1
+    input text              //div/input[@placeholder="ZIP"]             ${Zip Code}
+    sleep       1
+
+    unselect frame
+
+    repeat keyword     2 times      scroll element into view        //mat-checkbox[@name="termsAndConditions"]/label/div
+    sleep       1
+    click element           //mat-checkbox[@name="termsAndConditions"]/label/div
+    sleep       1
+    log to console          Order Submit
 
 

@@ -5,11 +5,14 @@ Library     SeleniumLibrary
 ${UserName}     amol.sonar+superadmin@stacksports.com
 ${Password}     Test@1234
 
+${Go to URL}    https://registration.bluesombrero.com/9003/order-summary?userId=86714206
+
 ${CardHolderName}   Test Amol
 ${CardNumber}       4111111111111111
 ${Expiration}       1030
 ${Cvv}              123
 ${Zip Code}         90033
+
 
 *** Test Cases ***
 Order
@@ -39,15 +42,21 @@ Go to the Order - Summary
 
     wait until element is visible           //div/span[contains(text(),'Dashboard')]        200
 
-    go to    https://registration.bluesombrero.com/9003/order-summary?userId=86390919&playerId=84966499
+    go to       ${Go to URL}
 
     wait until element is visible       //span[contains(text(),' Payment Options')]     100
 
-    sleep       2
-    click element       //span[contains(text(),'Payment Options')]
-    sleep       2
-    click element       //button/span[contains(text(),'Select')]
-    sleep       2
+    ${payment_options}      get webelements         //div[@class="payment-option"]
+    ${index}=   set variable    1
+    FOR     ${opt}      IN      @{payment_options}
+        click element       ${opt}
+        sleep    1
+        click element       //div[contains(text(),'Payment Plans')]
+        sleep    1
+        click element       //button/span[contains(text(),'Select')]
+        sleep    1
+    END
+    sleep    1
     click element       //button/span[contains(text(),'Continue')]
 
     wait until element is visible    //span/mat-panel-title[contains(text(),'Coupon Code')]     100
